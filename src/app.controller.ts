@@ -7,6 +7,9 @@ export class AppController {
 
   @Get()
   getHello(): string {
+    console.log(
+      `mongodb://${process.env['mongo_user']}:${process.env['mongo_pass']}@localhost:27018/${process.env['mongo_database']}`,
+    );
     return this.appService.getHello();
   }
 }
