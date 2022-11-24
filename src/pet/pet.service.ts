@@ -29,7 +29,7 @@ export class PetService {
     pet.name = updatePetInput.name;
     pet.photo = updatePetInput.photo;
     pet.specie = updatePetInput.specie;
-    pet.race = updatePetInput.race;
+    pet.breed = updatePetInput.breed;
     pet.genre = updatePetInput.genre;
     pet.age = updatePetInput.age;
     pet.alive = updatePetInput.alive;

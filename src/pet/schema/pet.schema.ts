@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
+import { URL } from 'url';
 
 export type PetDocument = HydratedDocument<pet>;
 
@@ -9,13 +10,13 @@ export class pet {
   name: string;
 
   @Prop({ required: true, unique: true })
-  photo: string;
+  photo: URL;
 
   @Prop({ required: true, minlength: 6 })
   specie: string;
 
   @Prop({ required: true })
-  race: string;
+  breed: string;
 
   @Prop({ default: 'M' })
   genre: 'M' | 'F';

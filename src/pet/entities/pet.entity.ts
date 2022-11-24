@@ -9,7 +9,7 @@ export class Pet {
   name: string;
 
   @Field(() => String, { description: 'Example field (placeholder)' })
-  photo: string;
+  photo: URL;
 
   @Field(() => String, { description: 'Example field (placeholder)' })
   specie: string;

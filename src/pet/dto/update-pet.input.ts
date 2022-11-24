@@ -6,5 +6,5 @@ import { IsString } from 'class-validator';
 export class UpdatePetInput extends PartialType(CreatePetInput) {
   @Field(() => ID)
   @IsString()
-  id: number;
+  id: string;
 }
