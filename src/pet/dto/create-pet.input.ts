@@ -1,5 +1,5 @@
 import { InputType, Field } from '@nestjs/graphql';
-import { IsEnum, IsOptional, IsString, IsUrl } from 'class-validator';
+import { IsEnum, IsOptional, IsString, IsUrl, Min } from 'class-validator';
 
 @InputType()
 export class CreatePetInput {
@@ -25,6 +25,7 @@ export class CreatePetInput {
   genre?: 'M' | 'F';
 
   @Field(() => String, { description: 'Here goes your pet age' })
+  @Min(1)
   age: number;
 
   @Field(() => String, {

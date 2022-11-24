@@ -21,7 +21,7 @@ export class pet {
   @Prop({ default: 'M' })
   genre: 'M' | 'F';
 
-  @Prop({ required: true })
+  @Prop({ required: true, min: 1 })
   age: number;
 
   @Prop({ required: true })
