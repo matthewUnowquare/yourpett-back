@@ -12,7 +12,7 @@ export class pet {
   @Prop({ required: true, unique: true })
   photo: URL;
 
-  @Prop({ required: true, minlength: 6 })
+  @Prop({ required: true })
   specie: string;
 
   @Prop({ required: true })

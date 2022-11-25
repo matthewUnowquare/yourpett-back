@@ -16,14 +16,14 @@ export class PetService {
     return this.petModel.find().exec();
   }
 
-  async findOne(id: number) {
+  async findOne(id: string) {
     const pet = await this.petModel.findById(id).exec();
     if (!pet) throw new NotFoundException('user not found');
 
     return pet;
   }
 
-  async update(id: number, updatePetInput: UpdatePetInput) {
+  async update(id: string, updatePetInput: UpdatePetInput) {
     const pet = await this.findOne(id);
 
     pet.name = updatePetInput.name;
@@ -38,7 +38,7 @@ export class PetService {
     return pet;
   }
 
-  async remove(id: number) {
+  async remove(id: string) {
     const pet = await this.findOne(id);
     (await pet).remove();
     return { pet };
