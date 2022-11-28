@@ -3,15 +3,15 @@ import { IsString } from 'class-validator';
 
 @InputType()
 export class CreatePostInput {
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String, { description: 'Pet Id' })
   @IsString()
   petId: string;
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String, { description: 'title' })
   @IsString()
   title: string;
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String, { description: 'description' })
   @IsString()
   description: string;
 }
