@@ -22,10 +22,10 @@ export class Pet {
   @Field(() => String, { description: 'Here goes your pet genre)' })
   genre: 'M' | 'F';
 
-  @Field(() => String, { description: 'Here goes your pet age' })
+  @Field(() => Int, { description: 'Here goes your pet age' })
   age: number;
 
-  @Field(() => String, {
+  @Field(() => Boolean, {
     description: 'Here you can specify if it is currently alive',
   })
   alive: boolean;

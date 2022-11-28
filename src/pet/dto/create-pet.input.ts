@@ -1,5 +1,13 @@
-import { InputType, Field } from '@nestjs/graphql';
-import { IsEnum, IsOptional, IsString, IsUrl, Min } from 'class-validator';
+import { InputType, Field, Int } from '@nestjs/graphql';
+import {
+  IsBoolean,
+  IsEnum,
+  IsInt,
+  IsOptional,
+  IsString,
+  IsUrl,
+  Min,
+} from 'class-validator';
 
 @InputType()
 export class CreatePetInput {
@@ -14,9 +22,11 @@ export class CreatePetInput {
   photo: URL;
 
   @Field(() => String, { description: 'Here goes your pet type of specie' })
+  @IsString()
   specie: string;
 
   @Field(() => String, { description: 'Here goes your pet breed' })
+  @IsString()
   breed: string;
 
   @Field(() => String, { description: 'Here goes your pet genre' })
@@ -24,12 +34,14 @@ export class CreatePetInput {
   @IsOptional()
   genre?: 'M' | 'F';
 
-  @Field(() => String, { description: 'Here goes your pet age' })
+  @Field(() => Int, { description: 'Here goes your pet age' })
   @Min(1)
+  @IsInt()
   age: number;
 
-  @Field(() => String, {
+  @Field(() => Boolean, {
     description: 'Here you can specify if it is currently alive',
   })
+  @IsBoolean()
   alive: boolean;
 }

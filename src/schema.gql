@@ -19,15 +19,46 @@ type User {
   genre: String!
 }
 
+type Pet {
+  """Here goes your pet ID"""
+  id: ID!
+
+  """Here goes the name of your pet"""
+  name: String!
+
+  """Here goes the profile picture of your pet"""
+  photo: String!
+
+  """Here goes your pet type of specie"""
+  specie: String!
+
+  """Here goes your pet breed"""
+  breed: String!
+
+  """Here goes your pet genre)"""
+  genre: String!
+
+  """Here goes your pet age"""
+  age: Int!
+
+  """Here you can specify if it is currently alive"""
+  alive: Boolean!
+}
+
 type Query {
   allUsers: [User!]!
   user(id: String!): User!
+  allPets: [Pet!]!
+  pet(id: String!): Pet!
 }
 
 type Mutation {
   createUser(createUserInput: CreateUserInput!): User!
   updateUser(updateUserInput: UpdateUserInput!): User!
   removeUser(id: String!): User!
+  createPet(createPetInput: CreatePetInput!): Pet!
+  updatePet(updatePetInput: UpdatePetInput!): Pet!
+  removePet(id: String!): Pet!
 }
 
 input CreateUserInput {
@@ -62,5 +93,52 @@ input UpdateUserInput {
 
   """Example field (placeholder)"""
   genre: String
+  id: ID!
+}
+
+input CreatePetInput {
+  """Here goes the name of your pet"""
+  name: String!
+
+  """Here goes the profile picture of your pet"""
+  photo: String!
+
+  """Here goes your pet type of specie"""
+  specie: String!
+
+  """Here goes your pet breed"""
+  breed: String!
+
+  """Here goes your pet genre"""
+  genre: String!
+
+  """Here goes your pet age"""
+  age: Int!
+
+  """Here you can specify if it is currently alive"""
+  alive: Boolean!
+}
+
+input UpdatePetInput {
+  """Here goes the name of your pet"""
+  name: String
+
+  """Here goes the profile picture of your pet"""
+  photo: String
+
+  """Here goes your pet type of specie"""
+  specie: String
+
+  """Here goes your pet breed"""
+  breed: String
+
+  """Here goes your pet genre"""
+  genre: String
+
+  """Here goes your pet age"""
+  age: Int
+
+  """Here you can specify if it is currently alive"""
+  alive: Boolean
   id: ID!
 }

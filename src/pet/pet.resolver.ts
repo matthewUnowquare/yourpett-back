@@ -13,13 +13,13 @@ export class PetResolver {
     return this.petService.create(createPetInput);
   }
 
-  @Query(() => [Pet], { name: 'pet' })
+  @Query(() => [Pet], { name: 'allPets' })
   findAll() {
     return this.petService.findAll();
   }
 
   @Query(() => Pet, { name: 'pet' })
-  findOne(@Args('id', { type: () => Int }) id: number) {
+  findOne(@Args('id', { type: () => String }) id: string) {
     return this.petService.findOne(id);
   }
 
@@ -29,7 +29,7 @@ export class PetResolver {
   }
 
   @Mutation(() => Pet)
-  removePet(@Args('id', { type: () => Int }) id: number) {
+  removePet(@Args('id', { type: () => String }) id: string) {
     return this.petService.remove(id);
   }
 }
