@@ -27,13 +27,13 @@ export class PostsService {
 
     post.title = updatePostInput.title;
     post.description = updatePostInput.description;
-    (await post).save();
+    post.save();
     return post;
   }
 
   async remove(id: string) {
     const post = await this.findOne(id);
-    (await post).remove();
+    post.remove();
     return { post };
   }
 }
