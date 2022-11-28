@@ -8,6 +8,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
 import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core';
 import { UsersModule } from './users/users.module';
+import { BreedModule } from './breed/breed.module';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { UsersModule } from './users/users.module';
       `mongodb://${process.env.mongo_user}:${process.env.mongo_pass}@localhost:27018/${process.env.mongo_database}?authSource=admin&readPreference=primary`,
     ),
     UsersModule,
+    BreedModule,
   ],
   controllers: [AppController],
   providers: [AppService],
