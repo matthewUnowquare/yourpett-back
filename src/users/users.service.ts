@@ -13,11 +13,15 @@ export class UsersService {
   }
 
   findAll() {
-    return this.userModel.find().exec();
+    return this.userModel.find().where('isActive').equals(true).exec();
   }
 
-  async findOne(id: string) {
-    const user = await this.userModel.findById(id).exec();
+  async findOne(id: string, isActive = true) {
+    const user = await this.userModel
+      .findById(id)
+      .where('isActive')
+      .equals(isActive)
+      .exec();
     if (!user) throw new NotFoundException('user not found');
 
     return user;
@@ -30,13 +34,21 @@ export class UsersService {
     user.email = updateUserInput.email;
     user.avatar = updateUserInput.avatar;
 
-    (await user).save();
+    user.save();
     return user;
   }
 
   async remove(id: string) {
     const user = await this.findOne(id);
-    (await user).remove();
-    return { user };
+    user.isActive = false;
+    user.save();
+    return user;
+  }
+
+  async recoverUser(id: string) {
+    const user = await this.findOne(id, false);
+    user.isActive = true;
+    user.save();
+    return user;
   }
 }
