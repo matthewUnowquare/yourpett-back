@@ -19,15 +19,34 @@ type User {
   genre: String!
 }
 
+type Post {
+  """Example field (placeholder)"""
+  id: ID!
+
+  """Example field (placeholder)"""
+  petId: String!
+
+  """Example field (placeholder)"""
+  title: String!
+
+  """Example field (placeholder)"""
+  description: String!
+}
+
 type Query {
   allUsers: [User!]!
   user(id: String!): User!
+  posts: [Post!]!
+  post(id: String!): Post!
 }
 
 type Mutation {
   createUser(createUserInput: CreateUserInput!): User!
   updateUser(updateUserInput: UpdateUserInput!): User!
   removeUser(id: String!): User!
+  createPost(createPostInput: CreatePostInput!): Post!
+  updatePost(updatePostInput: UpdatePostInput!): Post!
+  removePost(id: String!): Post!
 }
 
 input CreateUserInput {
@@ -63,4 +82,27 @@ input UpdateUserInput {
   """Example field (placeholder)"""
   genre: String
   id: ID!
+}
+
+input CreatePostInput {
+  """Example field (placeholder)"""
+  petId: String!
+
+  """Example field (placeholder)"""
+  title: String!
+
+  """Example field (placeholder)"""
+  description: String!
+}
+
+input UpdatePostInput {
+  """Example field (placeholder)"""
+  petId: String
+
+  """Example field (placeholder)"""
+  title: String
+
+  """Example field (placeholder)"""
+  description: String
+  id: String!
 }
