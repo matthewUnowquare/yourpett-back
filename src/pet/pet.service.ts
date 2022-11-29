@@ -34,13 +34,13 @@ export class PetService {
     pet.age = updatePetInput.age;
     pet.alive = updatePetInput.alive;
 
-    (await pet).save();
+    pet.save();
     return pet;
   }
 
   async remove(id: string) {
     const pet = await this.findOne(id);
-    (await pet).remove();
-    return { pet };
+    pet.remove();
+    return pet;
   }
 }

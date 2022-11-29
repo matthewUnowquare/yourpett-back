@@ -45,11 +45,27 @@ type Pet {
   alive: Boolean!
 }
 
+type Post {
+  """Here goes your post id"""
+  id: ID!
+
+  """Here goes your pet Id"""
+  petId: String!
+
+  """Here goes your post title"""
+  title: String!
+
+  """Here goes your post description"""
+  description: String!
+}
+
 type Query {
   allUsers: [User!]!
   user(id: String!): User!
   allPets: [Pet!]!
   pet(id: String!): Pet!
+  posts: [Post!]!
+  post(id: String!): Post!
 }
 
 type Mutation {
@@ -59,6 +75,9 @@ type Mutation {
   createPet(createPetInput: CreatePetInput!): Pet!
   updatePet(updatePetInput: UpdatePetInput!): Pet!
   removePet(id: String!): Pet!
+  createPost(createPostInput: CreatePostInput!): Post!
+  updatePost(updatePostInput: UpdatePostInput!): Post!
+  removePost(id: String!): Post!
 }
 
 input CreateUserInput {
@@ -141,4 +160,27 @@ input UpdatePetInput {
   """Here you can specify if it is currently alive"""
   alive: Boolean
   id: ID!
+}
+
+input CreatePostInput {
+  """Pet Id"""
+  petId: String!
+
+  """title"""
+  title: String!
+
+  """description"""
+  description: String!
+}
+
+input UpdatePostInput {
+  """Pet Id"""
+  petId: String
+
+  """title"""
+  title: String
+
+  """description"""
+  description: String
+  id: String!
 }

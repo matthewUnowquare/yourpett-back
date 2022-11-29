@@ -9,6 +9,7 @@ import { join } from 'path';
 import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core';
 import { UsersModule } from './users/users.module';
 import { PetModule } from './pet/pet.module';
+import { PostsModule } from './posts/posts.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { PetModule } from './pet/pet.module';
     ),
     UsersModule,
     PetModule,
+    PostsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
