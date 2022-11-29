@@ -19,23 +19,51 @@ type User {
   genre: String!
 }
 
-type Post {
-  """Example field (placeholder)"""
+type Pet {
+  """Here goes your pet ID"""
   id: ID!
 
-  """Example field (placeholder)"""
+  """Here goes the name of your pet"""
+  name: String!
+
+  """Here goes the profile picture of your pet"""
+  photo: String!
+
+  """Here goes your pet type of specie"""
+  specie: String!
+
+  """Here goes your pet breed"""
+  breed: String!
+
+  """Here goes your pet genre)"""
+  genre: String!
+
+  """Here goes your pet age"""
+  age: Int!
+
+  """Here you can specify if it is currently alive"""
+  alive: Boolean!
+}
+
+type Post {
+  """Here goes your post id"""
+  id: ID!
+
+  """Here goes your pet Id"""
   petId: String!
 
-  """Example field (placeholder)"""
+  """Here goes your post title"""
   title: String!
 
-  """Example field (placeholder)"""
+  """Here goes your post description"""
   description: String!
 }
 
 type Query {
   allUsers: [User!]!
   user(id: String!): User!
+  allPets: [Pet!]!
+  pet(id: String!): Pet!
   posts: [Post!]!
   post(id: String!): Post!
 }
@@ -44,6 +72,9 @@ type Mutation {
   createUser(createUserInput: CreateUserInput!): User!
   updateUser(updateUserInput: UpdateUserInput!): User!
   removeUser(id: String!): User!
+  createPet(createPetInput: CreatePetInput!): Pet!
+  updatePet(updatePetInput: UpdatePetInput!): Pet!
+  removePet(id: String!): Pet!
   createPost(createPostInput: CreatePostInput!): Post!
   updatePost(updatePostInput: UpdatePostInput!): Post!
   removePost(id: String!): Post!
@@ -84,25 +115,72 @@ input UpdateUserInput {
   id: ID!
 }
 
+input CreatePetInput {
+  """Here goes the name of your pet"""
+  name: String!
+
+  """Here goes the profile picture of your pet"""
+  photo: String!
+
+  """Here goes your pet type of specie"""
+  specie: String!
+
+  """Here goes your pet breed"""
+  breed: String!
+
+  """Here goes your pet genre"""
+  genre: String!
+
+  """Here goes your pet age"""
+  age: Int!
+
+  """Here you can specify if it is currently alive"""
+  alive: Boolean!
+}
+
+input UpdatePetInput {
+  """Here goes the name of your pet"""
+  name: String
+
+  """Here goes the profile picture of your pet"""
+  photo: String
+
+  """Here goes your pet type of specie"""
+  specie: String
+
+  """Here goes your pet breed"""
+  breed: String
+
+  """Here goes your pet genre"""
+  genre: String
+
+  """Here goes your pet age"""
+  age: Int
+
+  """Here you can specify if it is currently alive"""
+  alive: Boolean
+  id: ID!
+}
+
 input CreatePostInput {
-  """Example field (placeholder)"""
+  """Pet Id"""
   petId: String!
 
-  """Example field (placeholder)"""
+  """title"""
   title: String!
 
-  """Example field (placeholder)"""
+  """description"""
   description: String!
 }
 
 input UpdatePostInput {
-  """Example field (placeholder)"""
+  """Pet Id"""
   petId: String
 
-  """Example field (placeholder)"""
+  """title"""
   title: String
 
-  """Example field (placeholder)"""
+  """description"""
   description: String
   id: String!
 }
