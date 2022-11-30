@@ -19,6 +19,9 @@ export class user {
 
   @Prop({ default: 'M' })
   genre: 'M' | 'F';
+
+  @Prop({ default: true })
+  isActive: boolean;
 }
 
 export const userSchema = SchemaFactory.createForClass(user);
