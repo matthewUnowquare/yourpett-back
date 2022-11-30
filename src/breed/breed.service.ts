@@ -38,6 +38,6 @@ export class BreedService {
   async remove(id: string) {
     const breed = await this.findOne(id);
     (await breed).remove();
-    return { breed };
+    return breed;
   }
 }

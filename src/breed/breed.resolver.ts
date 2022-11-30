@@ -13,7 +13,7 @@ export class BreedResolver {
     return this.breedService.create(createBreedInput);
   }
 
-  @Query(() => [Breed], { name: 'breed' })
+  @Query(() => [Breed], { name: 'allBreed' })
   findAll() {
     return this.breedService.findAll();
   }
@@ -29,7 +29,7 @@ export class BreedResolver {
   }
 
   @Mutation(() => Breed)
-  removeBreed(@Args('id', { type: () => Int }) id: number) {
+  removeBreed(@Args('id', { type: () => String }) id: string) {
     return this.breedService.remove(id);
   }
 }

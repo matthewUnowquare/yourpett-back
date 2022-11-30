@@ -8,7 +8,7 @@ export class breed {
   @Prop({ required: true })
   name: string;
 
-  @Prop({ required: true, minlength: 6 })
+  @Prop({ required: true })
   animal: string;
 }
 
