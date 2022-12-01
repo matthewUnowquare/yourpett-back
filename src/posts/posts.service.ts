@@ -24,7 +24,6 @@ export class PostsService {
 
   async update(id: string, updatePostInput: UpdatePostInput) {
     const post = await this.findOne(id);
-
     post.title = updatePostInput.title;
     post.description = updatePostInput.description;
     post.save();
@@ -34,6 +33,6 @@ export class PostsService {
   async remove(id: string) {
     const post = await this.findOne(id);
     post.remove();
-    return { post };
+    return post;
   }
 }
