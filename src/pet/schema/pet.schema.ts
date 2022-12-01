@@ -6,7 +6,9 @@ export type PetDocument = HydratedDocument<pet>;
 
 @Schema()
 export class pet {
-  @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'user' }] })
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'user' })
+  owner: string;
+
   @Prop({ required: true })
   name: string;
 
