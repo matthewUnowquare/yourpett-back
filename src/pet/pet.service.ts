@@ -13,11 +13,11 @@ export class PetService {
   }
 
   findAll() {
-    return this.petModel.find().exec();
+    return this.petModel.find().populate('owner').exec();
   }
 
   async findOne(id: string) {
-    const pet = await this.petModel.findById(id).exec();
+    const pet = await this.petModel.findById(id).populate('owner').exec();
     if (!pet) throw new NotFoundException('user not found');
 
     return pet;

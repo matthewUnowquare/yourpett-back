@@ -1,4 +1,4 @@
-import { InputType, Field, Int } from '@nestjs/graphql';
+import { InputType, Field, Int, ID } from '@nestjs/graphql';
 import {
   IsBoolean,
   IsEnum,
@@ -24,6 +24,10 @@ export class CreatePetInput {
   @Field(() => String, { description: 'Here goes your pet type of specie' })
   @IsString()
   specie: string;
+
+  @Field(() => ID, { description: 'Here goes the owner of your pet' })
+  @IsString()
+  owner: string;
 
   @Field(() => String, { description: 'Here goes your pet breed' })
   @IsString()

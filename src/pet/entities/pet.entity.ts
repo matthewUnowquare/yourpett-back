@@ -1,4 +1,5 @@
 import { ObjectType, Field, Int, ID } from '@nestjs/graphql';
+import { User } from 'src/users/entities/user.entity';
 
 @ObjectType()
 export class Pet {
@@ -15,6 +16,9 @@ export class Pet {
 
   @Field(() => String, { description: 'Here goes your pet type of specie' })
   specie: string;
+
+  @Field(() => User, { description: 'Here goes the owner of your pet' })
+  owner: User;
 
   @Field(() => String, { description: 'Here goes your pet breed' })
   breed: string;
