@@ -31,4 +31,9 @@ export class UsersResolver {
   async removeUser(@Args('id', { type: () => String }) id: string) {
     return await this.usersService.remove(id);
   }
+
+  @Mutation(() => User)
+  async recoverUser(@Args('id', { type: () => String }) id: string) {
+    return await this.usersService.recoverUser(id);
+  }
 }

@@ -37,3 +37,4 @@ data
 !.vscode/extensions.json
 
 .env
+package-lock.json
