@@ -7,6 +7,9 @@ import { animal, AnimalsDocument } from './schema/animals.schema';
 
 @Injectable()
 export class AnimalsService {
+  findAll() {
+    throw new Error('Method not implemented.');
+  }
   constructor(
     @InjectModel(animal.name) private animalsModel: Model<AnimalsDocument>,
   ) {}
