@@ -1,9 +1,8 @@
 const config = {
-  DATABASE_URL: process.env.DATABASE_URL_DEV,
+  DATABASE_URL:
+    process.env.NODE_ENV === 'development'
+      ? process.env.DATABASE_URL_TEST
+      : process.env.DATABASE_URL,
 };
-
-if (process.env.NODE_ENV === 'development') {
-  config.DATABASE_URL = process.env.DATABASE_URL_TEST;
-}
 
 export default config;
