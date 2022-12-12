@@ -14,6 +14,10 @@ export class AnimalsService {
     return this.animalsModel.create(createAnimalInput);
   }
 
+  findAll() {
+    return this.animalsModel.find().where('isActive').equals(true).exec();
+  }
+
   async findOne(id: string, isActive = true) {
     const animal = await this.animalsModel
       .findById(id)
