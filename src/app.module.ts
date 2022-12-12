@@ -8,9 +8,11 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
 import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core';
 import { UsersModule } from './users/users.module';
+import { BreedModule } from './breed/breed.module';
 import { PetModule } from './pet/pet.module';
 import { PostsModule } from './posts/posts.module';
 import { AnimalsModule } from './animals/animals.module';
+
 
 @Module({
   imports: [
@@ -27,6 +29,7 @@ import { AnimalsModule } from './animals/animals.module';
       `mongodb://${process.env.mongo_user}:${process.env.mongo_pass}@localhost:27018/${process.env.mongo_database}?authSource=admin&readPreference=primary`,
     ),
     UsersModule,
+    BreedModule,
     PetModule,
     PostsModule,
     AnimalsModule,
