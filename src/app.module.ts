@@ -10,6 +10,7 @@ import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core';
 import { UsersModule } from './users/users.module';
 import { PetModule } from './pet/pet.module';
 import { PostsModule } from './posts/posts.module';
+import { AnimalsModule } from './animals/animals.module';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { PostsModule } from './posts/posts.module';
     UsersModule,
     PetModule,
     PostsModule,
+    AnimalsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
